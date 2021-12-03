@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  margin-left: 50%;
+  margin-top: 50%;
+}
+
+.main {
+  display: flex;
+  width: 350px;
+  height: 30px;
+  justify-content: space-between;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 5px solid blue;
+}
+
+.btns {
+  display: flex;
+  margin-top: 20px;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+}
