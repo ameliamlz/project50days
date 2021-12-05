@@ -1,39 +1,109 @@
+/* google import fonts */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* jQuery定义颜色常量？ */
+:root {
+  --line-border-fill: #3498db;
+  /* 直线 */
+  --line-border-empty: #e0e0e0;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  background-color: #f6f7fb;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
 }
 
 .container {
-  margin-left: 50%;
-  margin-top: 50%;
+  text-align: center;
 }
 
-.main {
+.progress-container {
   display: flex;
-  width: 350px;
-  height: 30px;
   justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  /* 最大值，不能再超过这个值了 */
+  max-width: 100%;
+  width: 350px;
+}
+
+/* 伪类样式 在指定样式前再添加样式 */
+.progress-container::before {
+  content: '';
+  /* var()函数 取指定变量的值 */
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+/* 对齐起点？ */
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
 }
 
 .circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
+  background-color: #fff;
+  color: #999;
   border-radius: 50%;
-  border: 5px solid blue;
-}
-
-.btns {
+  height: 30px;
+  width: 30px;
   display: flex;
-  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease；
+}
+.circle.active {
+  border-color: var(--line-border-fill);
 }
 
+/* 没有定义宽高，直接通过content和padding撑开 */
 .btn {
-  width: 100px;
-  height: 40px;
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
 }
+
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:focus {
+  /* 移除浏览器的默认聚焦样式 记得添加一个新的聚焦样式 */
+  outline: 0;
+}
+
+/* 任何btn且带disabled的伪类样式 */
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+

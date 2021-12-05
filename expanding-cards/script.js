@@ -1,3 +1,4 @@
+// Q：为什么只能显示部分图片？效果有点奇妙
 const panels = document.querySelectorAll('.panel');
 
 panels.forEach(panel =>{
