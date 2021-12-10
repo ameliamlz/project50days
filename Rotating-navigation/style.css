@@ -1,0 +1,158 @@
+/* 
+样式总结：
+1、按钮+小图标的妙用
+2、组合样式的使用
+3、transform的妙用：旋转中心的设置，动画的设计
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body{
+  margin: 0;
+  box-sizing: border-box; 
+  font-family: 'Lato', sans-serif;
+  background-color: #333; 
+  color: #222;
+  overflow-x: hidden;
+}
+
+.container{
+  background-color: #fafafa;
+  /* 设置旋转中心 */
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px; 
+}
+
+.container.show-nav .circle{
+  transform: rotate(-70deg);
+}
+
+.circle-container{
+  position: fixed;
+  top:-100px;
+  left: -100px;
+}
+
+/* transform平移之后还占用了原始的空间？
+    transform不会触发重拍或者重绘，只会在复合层做更改。
+    若要使其不占用原始空间，则可以利用position：absolute or fixed；将其移除正常布局流
+*/
+.circle{
+  width: 200px;
+  height: 200px;
+  background-color: #ff7979;
+  border-radius: 50%;
+  /* transform: translate(-50%, -50%); */
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+.container.show-nav{
+  transform: rotate(-20deg);
+}
+
+/* 选中了nav下的三个tab */
+.container.show-nav + nav li {
+  /* 利用这个来触发导航条移动的动画 */
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+.circle button{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  /* 让背景透明 */
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+.circle button:focus{
+  outline: 0;
+}
+
+.circle button#open{
+  left: 60%;
+}
+
+/* 关闭按钮 里面的x小图标是外部导入的 旋转是按钮做了一个旋转*/
+.circle button#close{
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+.content img {
+  max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+/* 选中3个tab */
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+/* 选中所有图标 */
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+/* 选中后2个tab */
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+/* 选中第3个tab */
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+nav a{
+  color: #fafafa;
+  text-decoration: none;
+  /* 应用于所有改变的元素 */
+  transition: all 0.5s;
+}
+
+nav a:hover {
+  color: #FF7979;
+  font-weight: bold;
+}
