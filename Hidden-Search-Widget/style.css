@@ -1,0 +1,59 @@
+/* 
+总结：
+本次主要是transition的妙用
+*/
+
+*{
+  box-sizing: border-box;
+}
+
+/* 设置高度后 align-items的设置才能生效 */
+body{
+  background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+.search{
+  position: relative;
+  height: 50px;
+}
+
+.search .input{
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+  transition: width 0.3s ease;
+  border: 0;
+}
+
+/* 聚焦时无border效果 */
+.btn:focus,.input:focus{
+  outline: none;
+}
+
+.btn{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border: 0;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.search.active .input{
+  width: 200px;
+}
+
+.search.active .btn{
+  transform: translateX(198px);
+}
