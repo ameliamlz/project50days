@@ -1,0 +1,36 @@
+body{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #efedd6;
+  /* overflow-x: hidden; */
+}
+
+.box{
+  background-color: steelblue;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 44px;
+  /* offset-x offset-y blur-radius color+opacity */
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+  /* 由当前位置沿着x轴移动一定的距离 */
+  transform: translateX(400%);
+  transition: transform 0.4s ease;
+}
+
+/* 伪类 取值:even odd n 2n and so on.  */
+.box:nth-of-type(even){
+  transform: translateX(-400%);
+}
+
+.box.show{
+  transform: translateX(0);
+}
