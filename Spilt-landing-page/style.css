@@ -1,0 +1,86 @@
+body{
+  box-sizing: border-box;
+  position: relative;
+  /* 最开始的时候少了这个，这个页面就会出现滚动条，即使设置了vw vh */
+  margin: 0;
+  overflow: hidden;
+}
+
+/* css的left和top属性指的是距最近的一个position属性为relative或者absolute的父级元素的左边或上边的距离，所以当要设置css的top和left的属性时，一定要确保定义position为absolute或者relative； */
+
+/* 
+一种是利用flex布局生成两列 
+另一种是利用relative+固定子块的宽度
+*/
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #333;
+}
+
+.split{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.split.left{
+  left: 0;
+}
+
+.split.right {
+  right: 0;
+}
+
+.split.left::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.split.right::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.left{
+  background: url(https://50projects50days.com/projects/split-landing-page/ps.jpg);
+}
+
+.right{
+  background: url(https://50projects50days.com/projects/split-landing-page/xbox.jpg);
+}
+
+h1{
+  color: #fff;
+  font-size: 4rem; 
+  left: 20%;
+  top: 50%;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.btn{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 40%;
+  border: #fff solid 0.2rem;
+  width: 15rem;
+  background: none;
+  cursor: pointer;
+}
+
+.split.left .btn:hover{
+  background-color: rgba(rgb(115, 105, 246), green, blue, alpha);
+}
+
+.split.right .btn:hover{
+  background-color: rgba(rgb(85, 240, 71), green, blue, alpha);
+}
