@@ -1,0 +1,103 @@
+body{
+  margin: 0;
+  overflow: hidden;
+  background-color: steelblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Muli', sans-serif;
+  color: #fff;
+}
+
+.container{
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 20px 40px;
+}
+
+.container h1{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container a{
+  text-decoration: none;
+  color: lightblue;
+}
+
+.form-control{
+  position: relative;
+  /* 上 左右 下 */
+  margin:20px 0 40px;
+  width: 300px;
+}
+
+.form-control input{
+  background-color: transparent;
+  border: 0;
+  /* size color style */
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* 表单验证时 */
+.form-control input:focus,
+.form-control input:valid {
+  border-color: lightblue;
+  outline: 0;
+}
+
+/* 将标签位置固定叠加透明的输入框就可以产生这种效果 */
+.form-control label{
+  position: absolute;
+  left: 0;
+  top: 15px;
+  /* 指针事件 */
+  pointer-events:none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
+
+/* width100%的用法
+  分两种情况：
+      1、content-box：子元素内容区域相对父元素内容区域，容易导致溢出
+      2、border-box：子元素整个box相对父元素内容区域
+*/
+.btn{
+  cursor: pointer;
+  background-color: lightblue;
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.btn:focus{
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 30px;
+}

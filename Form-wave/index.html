@@ -1,0 +1,35 @@
+<!-- 项目总结
+  基本完成，除了button点击事件响应，即email字段为空时点击button会报提示。
+  样式：主要考虑居中布局和表单字段常用标签，还有盒模型，width：100%，组合样式的记忆
+  逻辑：过渡样式如何添加以及focus伪类样式的处理
+-->
+<!DOCTYPE html>
+<head>
+    <title>Form Wave</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Please Login</h1>
+  <!-- 
+    label和input 与 p和input 组合的区别：
+    1、label和input组合不换行
+    2、p和input组合会换行
+    建议：多用1、，视觉效果更好
+  -->
+  <div class="form">
+    <div class="form-control">
+      <input type="text" required/>
+      <label>Email</label>
+    </div>
+    <div class="form-control">
+      <input type="text" required/>
+      <label>Password</label>
+    </div>
+    <button class="btn">Login</button>
+    <p class="text">Don't have an account? <a href="#">Register</a></p>
+  </div>
+</div>
+</body>
+<script src="./script.js"></script>
+</html>
