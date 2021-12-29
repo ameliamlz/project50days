@@ -1,0 +1,24 @@
+body{
+  margin: 0;
+  background-color: rgba(180, 118, 241, 0.8);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* 决定子容器是否换行 */
+  flex-wrap: wrap;
+  /* 作用块级元素的文本对齐 */
+  text-align: center;
+}
+
+.btn{
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 5px;
+  border: none;
+  margin: 20px;
+  padding: 30px 60px;
+  cursor: pointer;
+}
