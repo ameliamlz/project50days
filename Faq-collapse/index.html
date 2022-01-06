@@ -1,0 +1,34 @@
+<!-- 
+  项目总结：
+  最开始纠结的地方是否把标题和剩余内容一起做一个居中，这边给出的解决方案是：
+  标题+text-align:center, div+margin:auto, 但是div要设置好最大宽度
+  1、常规的active逻辑
+  2、当一个元素消失时可以选择用display属性来设置，纠结点：看到文字选p还是h？内容决定
+  3、外部引用按钮+样式
+ -->
+<!DOCTYPE html>
+<head>
+    <title>Faq Collapse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Frequently Asked Questions</h1>
+  <div class="container">
+    <div class="faq active">
+      <h3 class="faq-title">
+        Why shouldn't we trust atoms?
+      </h3>
+      <p class="faq-text">
+        They make up everything
+      </p>
+      <button class="faq-toggle">
+        <i class="fas fa-chevron-down"></i>
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+</body>
+<script src="./script.js"></script>
+</html>
