@@ -1,0 +1,116 @@
+body{
+  box-sizing: border-box;
+  /* overflow: hidden; */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 非纯色背景色的处理方式：
+    1、my：用div拼接
+    2、利用background-color和background-image
+*/
+
+.top{
+  height: 50vh;
+  background-color: #eafbff;
+}
+/* background-color 和 background-image的区别：
+    1、一个是背景图片，一个是背景色
+    2、背景图片可以用渐变函数？
+
+   background 和 background-image的区别：
+   前者是一个属性的集合，如果重新设置容易导致好几个属性都消失，
+   因此如果需要背景图建议用后者，具体属性
+*/
+.bottom{
+  top: 50vh;
+  height: 50vh;
+  background-color: #5290f9;
+}
+
+/* 这个地方没有处理好 如果将导航条的位置设为固定 会影响后面 */
+.navigation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 30%);
+  border-radius: 3px;
+  transition: width 0.6s linear;
+  overflow-x: hidden;
+}
+
+.navigation.active{
+  width: 350px;
+}
+
+.navigation span {
+  transform: rotateY(0deg);
+  opacity: 0;
+  transition: transform 0.6s linear, opacity 0.6s linear;
+}
+
+.navigation.active span {
+  opacity: 1;
+  transform: rotateY(360deg);
+}
+
+.navigation span a{
+  position: relative;
+}
+
+span{
+  display: block;
+  padding: 20px 10px;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+.icon{
+  position: relative;
+  background-color: #fff;
+  border: 0;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.icon:focus{
+  outline: 0;
+}
+
+.icon .line{
+  background-color: #5290f9;
+  height: 2px;
+  width: 20px;
+  /* 绝对定位使得line1 line2 重叠*/
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  transition: transform 0.6s linear;
+}
+
+.icon .line2 {
+  top: auto;
+  bottom: 10px;
+}
+
+.navigation.active .icon .line1 {
+  transform: rotate(-765deg) translateY(5.5px);
+}
+
+.navigation.active .icon .line2 {
+  transform: rotate(765deg) translateY(-5.5px);
+}
