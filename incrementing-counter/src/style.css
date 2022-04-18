@@ -1,0 +1,26 @@
+.head{
+  background-color: #001529;
+}
+
+.layout{
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: 20px 50px;
+}
+
+
+
+.content{
+  background-color: #fff;
+  min-height: 280px;
+  padding: 10px 20px;
+}
+
+.footer{
+  padding-top: 10px;
+  text-align: center;
+}
+
